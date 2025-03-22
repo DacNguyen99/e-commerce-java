@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class AddressDto {
 
-    private long id;
+    private Long id;
 
     private String street;
 

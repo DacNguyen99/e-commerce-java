@@ -28,8 +28,8 @@ public class OrderItemSpecification {
         });
     }
 
-    public static Specification<OrderItem> hasItemId(long itemId) {
+    public static Specification<OrderItem> hasItemId(Long itemId) {
         return (root, query, criteriaBuilder) ->
-                criteriaBuilder.equal(root.get("id"), itemId);
+                itemId != null ? criteriaBuilder.equal(root.get("id"), itemId) : null;
     }
 }

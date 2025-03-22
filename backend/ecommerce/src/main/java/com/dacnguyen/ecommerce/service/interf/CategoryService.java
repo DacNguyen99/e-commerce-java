@@ -7,11 +7,11 @@ public interface CategoryService {
 
     Response createCategory(CategoryDto categoryRequest);
 
-    Response updateCategory(long categoryId, CategoryDto categoryRequest);
+    Response updateCategory(Long categoryId, CategoryDto categoryRequest);
 
     Response getAllCategories();
 
-    Response getCategoryById(long categoryId);
+    Response getCategoryById(Long categoryId);
 
-    Response deleteCategory(long categoryId);
+    Response deleteCategory(Long categoryId);
 }

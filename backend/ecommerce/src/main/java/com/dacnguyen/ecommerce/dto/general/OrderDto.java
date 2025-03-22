@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 public class OrderDto {
 
-    private long id;
+    private Long id;
 
     private BigDecimal totalPrice;
 

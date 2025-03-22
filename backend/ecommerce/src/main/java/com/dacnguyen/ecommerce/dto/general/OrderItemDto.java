@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class OrderItemDto {
 
-    private long id;
+    private Long id;
 
     private int quantity;
 
