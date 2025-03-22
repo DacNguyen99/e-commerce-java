@@ -28,8 +28,8 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
-    private EntityToDtoMapper entityToDtoMapper;
-    private AwsS3Service awsS3Service;
+    private final EntityToDtoMapper entityToDtoMapper;
+    private final AwsS3Service awsS3Service;
 
     @Override
     public Response createProduct(Long categoryId, MultipartFile image,
@@ -58,14 +58,18 @@ public class ProductServiceImpl implements ProductService {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new NotFoundException("Product not found!"));
 
-        Optional<Category> categoryOptional = categoryRepository.findById(categoryId);
+        Category category = null;
+        if (categoryId != null) {
+            category = categoryRepository.findById(categoryId)
+                    .orElseThrow(() -> new NotFoundException("Category not found!"));
+        }
 
         String productImageUrl = null;
         if (photo != null && !photo.isEmpty()) {
             productImageUrl = awsS3Service.saveImageToS3(photo);
         }
 
-        categoryOptional.ifPresent(product::setCategory);
+        if (category != null) product.setCategory(category);
         if (name != null) product.setName(name);
         if (price != null) product.setPrice(price);
         if (description != null) product.setDescription(description);

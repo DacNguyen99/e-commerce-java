@@ -8,7 +8,8 @@ import java.math.BigDecimal;
 
 public interface ProductService {
 
-    Response createProduct(Long categoryId, MultipartFile image, String name, String description, BigDecimal price) throws IOException;
+    Response createProduct(Long categoryId, MultipartFile image,
+                           String name, String description, BigDecimal price) throws IOException;
 
     Response updateProduct(Long productId, Long categoryId, MultipartFile image,
                            String name, String description, BigDecimal price) throws IOException;

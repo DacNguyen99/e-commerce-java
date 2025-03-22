@@ -29,5 +29,5 @@ public class UserDto {
 
     private List<OrderItemDto> orderItemList;
 
-    private AddressDto address;
+    private List<AddressDto> addresses;
 }

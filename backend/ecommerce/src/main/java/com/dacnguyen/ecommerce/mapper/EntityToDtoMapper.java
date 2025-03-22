@@ -4,6 +4,7 @@ import com.dacnguyen.ecommerce.dto.general.*;
 import com.dacnguyen.ecommerce.entity.*;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -67,9 +68,9 @@ public class EntityToDtoMapper {
     // user to userDto with address
     public UserDto userToUserDtoWithAddress(User user) {
         UserDto userDto = userToUserDto(user);
-        if (user.getAddress() != null) {
-            AddressDto addressDto = addressToAddressDto(user.getAddress());
-            userDto.setAddress(addressDto);
+        if (user.getAddresses() != null) {
+            List<AddressDto> addressDtoList = user.getAddresses().stream().map(this::addressToAddressDto).toList();
+            userDto.setAddresses(addressDtoList);
         }
         return userDto;
     }
