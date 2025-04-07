@@ -38,16 +38,16 @@ const ProductList = ({ products }) => {
               <h3>{product.name}</h3>
               <p>{product.description}</p>
               <span>${product.price.toFixed(2)}</span>
-              {cartItem ? (
-                <div className="quantity-controls">
-                  <button onClick={() => decrementItem(product)}> - </button>
-                  <span>{cartItem.quantity}</span>
-                  <button onClick={() => incrementItem(product)}> + </button>
-                </div>
-              ) : (
-                <button onClick={() => addToCart(product)}>Add To Cart</button>
-              )}
             </Link>
+            {cartItem ? (
+              <div className="quantity-controls">
+                <button onClick={() => decrementItem(product)}> - </button>
+                <span>{cartItem.quantity}</span>
+                <button onClick={() => incrementItem(product)}> + </button>
+              </div>
+            ) : (
+              <button onClick={() => addToCart(product)}>Add To Cart</button>
+            )}
           </div>
         );
       })}
