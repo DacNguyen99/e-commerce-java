@@ -63,7 +63,7 @@ export default class ApiService {
     return response.data;
   }
 
-  static async getAllProduct() {
+  static async getAllProducts() {
     const response = await axios.get(`${this.BASE_URL}/product/get-all`);
     return response.data;
   }
