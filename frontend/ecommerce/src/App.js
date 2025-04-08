@@ -7,6 +7,9 @@ import Home from "./component/pages/Home";
 import ProductDetailsPage from "./component/pages/ProductDetailsPage";
 import CategoryListPage from "./component/pages/CategoryListPage";
 import CategoryProductsPage from "./component/pages/CategoryProductsPage";
+import CartPage from "./component/pages/CartPage";
+import RegisterPage from "./component/pages/RegisterPage";
+import LoginPage from "./component/pages/LoginPage";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/product/:productId" element={<ProductDetailsPage />} />
           <Route path="/categories" element={<CategoryListPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route
             path="/category/:categoryId"
             element={<CategoryProductsPage />}
