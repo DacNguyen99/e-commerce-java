@@ -10,6 +10,8 @@ import CategoryProductsPage from "./component/pages/CategoryProductsPage";
 import CartPage from "./component/pages/CartPage";
 import RegisterPage from "./component/pages/RegisterPage";
 import LoginPage from "./component/pages/LoginPage";
+import ProfilePage from "./component/pages/ProfilePage";
+import AddressPage from "./component/pages/AddressPage";
 
 function App() {
   return (
@@ -28,6 +30,9 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/edit-address/:addressId" element={<AddressPage />} />
+          <Route path="/add-address" element={<AddressPage />} />
           <Route
             path="/category/:categoryId"
             element={<CategoryProductsPage />}
