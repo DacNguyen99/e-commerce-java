@@ -26,8 +26,7 @@ public class ProductController {
             @RequestParam MultipartFile image,
             @RequestParam String name,
             @RequestParam String description,
-            @RequestParam BigDecimal price
-            ) throws IOException {
+            @RequestParam BigDecimal price) throws IOException {
         if (categoryId == null && image.isEmpty() && name.isEmpty() && description.isEmpty() && price == null) {
             throw new InvalidCredentialsException("All fields are required!");
         }
@@ -43,14 +42,13 @@ public class ProductController {
             @RequestParam(required = false) MultipartFile image,
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String description,
-            @RequestParam(required = false) BigDecimal price
-    ) throws IOException {
+            @RequestParam(required = false) BigDecimal price) throws IOException {
         return ResponseEntity.ok(productService.updateProduct(productId, categoryId, image, name, description, price));
     }
 
     @DeleteMapping("/delete/{productId}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<Response> deleteProduct(@PathVariable Long productId) {
+    public ResponseEntity<Response> deleteProduct(@PathVariable Long productId) throws IOException {
         return ResponseEntity.ok(productService.deleteProduct(productId));
     }
 

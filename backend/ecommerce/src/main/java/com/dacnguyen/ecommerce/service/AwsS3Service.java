@@ -52,4 +52,21 @@ public class AwsS3Service {
 
         return "https://" + bucketName + ".s3.ap-southeast-2.amazonaws.com/" + s3FileName;
     }
+
+    public void deleteImageFromS3(String imageUrl) {
+        // Extract the key (filename) from the S3 URL
+        String key = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
+
+        // create aws credentials using access and secret key
+        BasicAWSCredentials awsCredentials = new BasicAWSCredentials(awsS3AccessKey, awsS3SecretKey);
+
+        // create s3 client with config credentials and region
+        AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
+                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
+                .withRegion(Regions.AP_SOUTHEAST_2)
+                .build();
+
+        // delete the object from s3 bucket
+        s3Client.deleteObject(bucketName, key);
+    }
 }

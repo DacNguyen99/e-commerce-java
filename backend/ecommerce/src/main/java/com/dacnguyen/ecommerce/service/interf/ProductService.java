@@ -9,12 +9,12 @@ import java.math.BigDecimal;
 public interface ProductService {
 
     Response createProduct(Long categoryId, MultipartFile image,
-                           String name, String description, BigDecimal price) throws IOException;
+            String name, String description, BigDecimal price) throws IOException;
 
     Response updateProduct(Long productId, Long categoryId, MultipartFile image,
-                           String name, String description, BigDecimal price) throws IOException;
+            String name, String description, BigDecimal price) throws IOException;
 
-    Response deleteProduct(Long productId);
+    Response deleteProduct(Long productId) throws IOException;
 
     Response getProductById(Long productId);
 
